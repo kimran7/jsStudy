@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>if else</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">Navbar</span>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+    <div class="main-bg">
+      <h4>Shirts on Sale</h4>
+      <button id="login" class="btn btn-danger">로그인</button>
+    </div>
+
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" id="email" />
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" id="password" />
+          </div>
+          <button type="submit" class="btn btn-primary" id="send">전송</button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      //앞의 조건식이 참이면 else문 뒤는 아예 실행 안됨
+      if (3 == 3) {
+        console.log("맞아요1");
+      } else if (1 == 3) {
+        console.log("맞아요2");
+      }
+
+      //앞의 조건식과 상관없이 둘째 if문도 실행됨
+      if (3 == 3) {
+        console.log("맞아요1");
+      }
+      if (1 == 3) {
+        console.log("맞아요2");
+      }
+
+      if (1 == 3) {
+        console.log("맞아요1");
+      } else if (3 == 3) {
+        console.log("맞아요2");
+      }
+
+      // 전송버튼 클릭 시
+      // input에 입력한 값이 공백이면 알림창띄우기
+      $("form").on("submit", function () {
+        if (document.getElementById("email").value == "") {
+          alert("아이디를 입력하세요");
+        }
+        if (document.getElementById("password").value == "") {
+          alert("비밀번호를 입력하세요");
+      리  }
+        if (document.getElementById("password").value.length < 6) {
+          alert("비밀번호 6자 입력하세요");
+        }
+      });
+
+      // document.querySelector("#send").addEventListener("form", function (e) {
+      //   e.preventDefault();
+      //   if (doucument.getElemetById("email").value == "") {
+      //     alert("아이디를 입력하세요");
+      //   }
+      // });
+
+
+      //input, change 이벤트
+      document.getElementById('email').addEventListener('change',function(){
+        console.log('안녕')
+      })
+      
+    </script>
+
+    <script>
+      $("#login").on("click", function () {
+        $(".black-bg").addClass("show-modal");
+      });
+
+      $("#close").on("click", function () {
+        $(".black-bg").removeClass("show-modal");
+      });
+    </script>
+
+    <script>
+      document.querySelector(".navbar-toggler").addEventListener("click", function () {
+        document.querySelectorAll(".list-group")[0].classList.toggle("show");
+      });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
